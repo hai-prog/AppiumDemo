@@ -22,6 +22,13 @@ public class ElementsActions {
 
     }
 
+
+
+    /**
+     * this method is to wait for the element to be clickable then Click on it
+     * @param driver an instance of your driver
+     * @param elementLocator the by Element that you want to get its location and click on it
+     */
     public static void click(WebDriver driver, By elementLocator) {
 
         locateTheElement(driver, elementLocator);
@@ -41,6 +48,11 @@ public class ElementsActions {
     }
 
 
+    /**
+     * this method is to clear the text field then start to write .
+     * @param driver an instance of your driver
+     * @param elementLocator the by Element that you want to get its location and write on it
+     */
     public static void setText(WebDriver driver, By elementLocator, String text, boolean clearBeforeTyping) {
 
         locateTheElement(driver, elementLocator);
@@ -49,7 +61,7 @@ public class ElementsActions {
             // Clear before typing condition
             if (!driver.findElement(elementLocator).getAttribute("text").isBlank() && clearBeforeTyping) {
                 driver.findElement(elementLocator).clear();
-                // We type here!
+                // We type here
                 driver.findElement(elementLocator).sendKeys(text);
 
             }else {
@@ -59,6 +71,11 @@ public class ElementsActions {
             e.printStackTrace();
         }}
 
+    /**
+     * this method is to get text form web element.
+     * @param driver an instance of your driver
+     * @param elementLocator the by Element that you want to get its location and get text from it
+     */
     public static String getText(WebDriver driver, By elementLocator) {
         locateTheElement(driver, elementLocator);
         try {
@@ -70,6 +87,11 @@ public class ElementsActions {
         return null;
     }
 
+    /**
+     * This method is to scroll down to specific text/Element by passing only the text appeared on the screen
+     *
+     * @param text the text or element you want to scroll to
+     */
     public static void scrollDownToSpecificText(WebDriver driver ,String text) {
 //        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
 //                + ".instance(0)).scrollIntoView(new UiSelector().textMatches(\"" + text + "\").instance(0))"));
@@ -77,6 +99,11 @@ public class ElementsActions {
                 + ".instance(0)).scrollIntoView(new UiSelector().textMatches(\"" + text + "\").instance(0))"));
     }
 
+    /**
+     * This method is to scroll down to a text or Element that containing a text that happened by passing only the text appeared on the screen
+     *
+     * @param text the text or element you want to scroll to
+     */
     public static void scrollDownToSpecificTextContained(WebDriver driver , String text) {
 //        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)"
 //                + ".instance(0)).scrollIntoView(new UiSelector().textContains(\"" + text + "\").instance(0))"));
@@ -85,16 +112,33 @@ public class ElementsActions {
                + ".instance(0)).scrollIntoView(new UiSelector().textContains(\"" + text + "\").instance(0))"));
     }
 
+
+    /**
+     * This a private method the purpose of that is to swipe right
+     *
+     * @param element the webElement that you want to get its location
+     * @param driver  an instance of your driver
+     */
     public static void swipeRightOnElement(By element, WebDriver driver) {
         swipeRightOnElement(driver.findElement(element), driver);
     }
 
+
+    /**
+     * This method is to swipe right
+     *
+     * @param element the by Element that you want to get its location and swipe right out of it
+     * @param driver  an instance of your driver
+     */
     public static void swipeLeftOnElement(By element,WebDriver driver) {
         swipeLeftOnElement(driver.findElement(element), driver);
     }
 
-
-
+    /**
+     * this method is to locate the webElements to interact with it
+     * @param driver an instance of your driver
+     * @param elementLocator the by Element that you want to get its location
+     */
     private static void locateTheElement (WebDriver driver, By elementLocator)
         {
             try {
@@ -114,8 +158,12 @@ public class ElementsActions {
         }
 
 
-
-
+    /**
+     * This a private method the purpose of that is to swipe right
+     *
+     * @param element the webElement that you want to get its location
+     * @param driver  an instance of your driver
+     */
 
     @SuppressWarnings({"rawtypes", "unused"})
     private static void swipeRightOnElement(WebElement element, WebDriver driver) {
@@ -136,6 +184,12 @@ public class ElementsActions {
                 .release().perform();
     }
 
+    /**
+     * This a private method the purpose of that is to swipe left
+     *
+     * @param element the webElement that you want to get its location
+     * @param driver  an instance of your driver
+     */
     @SuppressWarnings({"rawtypes", "unused"})
     private static void swipeLeftOnElement(WebElement element, WebDriver driver) {
         Point point = element.getLocation();
