@@ -9,7 +9,7 @@
 <h1 align="center">SwagLabs Project</h1>
 
   <p align="center">
-     Mobile testing framework for the Sauce Demo application: Tests created that exercise the website's different functionalities!
+     Mobile testing framework for the Sauce Demo application: Tests created that exercise the application's different functionalities!
     <br />
     <br />
 
@@ -55,6 +55,7 @@ Page Objective Models (poms) were created for each of the following pages:
 
 
 <!-- Methods available in Page Object Models: -->
+# Methods available in Page Object Models:
 ## Login Page
 * login(String userName, String password) ->used to login using userName and password then click login button
 * validate_errorMessage(String expectedErrorMessage) -> assert on error message when entering invalid credentials
